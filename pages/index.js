@@ -19,14 +19,26 @@ export default function Home() {
         </h1>
 
         <Products>
-          <Cards bgColor="#f6f6f6" />
-          <Cards bgColor="#f6f6f6" />
-          <Cards bgColor="#f6f6f6" />
+          <Cards
+            name="METALL LOGO T-SHIRT"
+            image="https://i.pinimg.com/originals/62/98/b0/6298b026a65cf80bcf9dce061e9b79c9.png"
+            price="60"
+          />
+          <Cards
+            name="BLUE SIMPLE HOODIE"
+            image="https://ramptshirts.com/assets/images/samples/standard-hoodies/red.png"
+            price="120"
+          />
+          <Cards
+            name="SOLID WHITE T-SHIRT"
+            image="https://pngimg.com/uploads/tshirt/tshirt_PNG5429.png"
+            price="60"
+          />
         </Products>
         <Products>
-          <Cards bgColor="#f6f6f6" />
-          <Cards bgColor="#f6f6f6" />
-          <Cards bgColor="#f6f6f6" />
+          <Cards bgColor="#0C0C0C" />
+          <Cards bgColor="#0C0C0C" />
+          <Cards bgColor="#0C0C0C" />
         </Products>
       </main>
     </div>
