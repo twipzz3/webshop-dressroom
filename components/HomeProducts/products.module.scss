@@ -1,0 +1,7 @@
+.container {
+    margin-top: 30px;
+    display: grid;
+    grid-template-areas:
+      "first second third";
+    gap: 20px;
+  }
