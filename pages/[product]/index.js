@@ -47,7 +47,7 @@ export default function Product({ data }) {
           <div className={styles.productInfos}>
             <div className={styles.header}>
               <h1 className={styles.productTitle}>{product_name || ''}</h1>
-              <Link href={`/${brand}`}>{brand || ''}</Link>
+              <Link href={`/${product_name}`}>{product_name || ''}</Link>
             </div>
             <span className={styles.priceText}>{price || 0}$</span>
             <hr />
@@ -90,7 +90,7 @@ Product.getInitialProps = async function ({ query }) {
   let error = {};
   await db
     .collection('Products')
-    .doc(query.name)
+    .doc(query.product)
     .get()
     .then(function (doc) {
       data = doc.data();
