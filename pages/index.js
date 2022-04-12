@@ -2,10 +2,10 @@ import Head from 'next/head';
 import styles from './index.module.scss';
 
 import Layout from 'components/Layout';
-import Cards from 'components/HomeCard/cards';
-import Products from 'components/HomeProducts';
+import Cards from '@/components/ProductCard/product-card';
+//import Products from 'components/HomeProducts';
 import { db } from '@/config/firebase';
-import { useProduct } from 'hooks/product.hook';
+//import { useProduct } from 'hooks/product.hook';
 
 export default function Home({ data, query }) {
   console.log(data);
@@ -27,6 +27,7 @@ export default function Home({ data, query }) {
               return (
                 <Cards
                   key={product.id}
+                  id={product.id}
                   data={data}
                   name={product.product_name}
                   image={product.cover_photo}
