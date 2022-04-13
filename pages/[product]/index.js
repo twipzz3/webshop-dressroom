@@ -7,6 +7,7 @@ import Layout from 'components/Layout';
 import Link from 'next/link';
 import { useState } from 'react';
 import Button from '@/components/Button';
+import ButtonGr from '@/components/ButtonGr';
 import { useProduct } from 'hooks/product.hook';
 import { db } from '@/config/firebase';
 import ErrorPage from 'pages/404';
@@ -41,7 +42,9 @@ export default function Product({ data, query }) {
                     key={index}
                     src={image}
                     className={styles.smallPhoto}
-                    style={{ borderColor: selectedPhoto === index && 'yellow' }}
+                    style={{
+                      borderColor: selectedPhoto === index && '#C045F0',
+                    }}
                     onClick={() => setSelectedPhoto(index)}
                     loading="lazy"
                   />
@@ -53,19 +56,21 @@ export default function Product({ data, query }) {
             <div className={styles.header}>
               <h1 className={styles.productTitle}>{product_name || ''}</h1>
             </div>
-            <h4 className={styles.sizesText}>Prices</h4>
-            <span className={styles.priceText}>{price || 0}$</span>
+            <div className={styles.prices}>
+              <h4 className={styles.pricesText}>Price</h4>
+              <span className={styles.priceText}>{price || 0}$</span>
+            </div>
             <hr />
             <div className={styles.sizes}>
-              <h4 className={styles.sizesText}>Sizes</h4>
+              <h4 className={styles.sizesText}>Size</h4>
               {sizes.map((size) => {
                 return (
                   <button
                     key={size}
                     className={styles.sizeButton}
                     style={{
-                      borderColor: selectedSize === size && 'yellow',
-                      fontWeight: selectedSize === size && 'bold',
+                      borderColor: selectedSize === size && '#C045F0',
+                      color: selectedSize === size && '#C045F0',
                     }}
                     onClick={() => setSelectedSize(size)}
                   >
@@ -76,6 +81,7 @@ export default function Product({ data, query }) {
             </div>
             <hr />
             <div className={styles.buttons}>
+              <ButtonGr style={{ margin: 0 }}>Virtual Room</ButtonGr>
               <Button style={{ margin: 0 }}>Add to Cart</Button>
             </div>
             <hr />

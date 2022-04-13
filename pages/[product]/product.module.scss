@@ -61,21 +61,32 @@
         }
       }
 
-      .priceText {
-        font-size: 24px;
-        color: grey;
-        font-weight: 500;
+      .prices {
+        h4 {
+          margin: 0;
+          margin-bottom: 10px;
+          font-size: 24px;
+          font-weight: 550;
+        }
+        .priceText {
+          font-size: 36px;
+          font-weight: 300;
+        }
       }
 
       .sizes {
         h4 {
           margin: 0;
           margin-bottom: 10px;
+          font-size: 24px;
+          font-weight: 550;
         }
         button {
-          border: 3px solid #eee;
+          font-size: 16px;
+          font-weight: 700;
+          border: 3px solid white;
           color: white;
-          border-radius: 4px;
+          border-radius: 8px;
           background-color: transparent;
           margin: 0;
           margin-right: 10px;
@@ -91,6 +102,7 @@
         display: flex;
         margin-top: 20px;
         margin-bottom: 20px;
+        gap: 30px;
       }
       .infoContainer {
         h4 {
