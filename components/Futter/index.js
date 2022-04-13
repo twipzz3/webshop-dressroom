@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 
-import styles from './header.module.scss';
+import styles from './futter.module.scss';
 
-export default function Header() {
+export default function Futter() {
   return (
     <nav className={styles.container}>
       <Link href="/">
@@ -20,6 +20,14 @@ export default function Header() {
         <Link href="/">
           <div className={styles.cartContainer}>
             <span>CART (0)</span>
+          </div>
+        </Link>
+
+        <Link href="/">
+          <div className={styles.profileContainer}>
+            <span>
+              Hi, <span style={{ fontWeight: 'bold' }}>GUEST</span>
+            </span>
           </div>
         </Link>
       </div>

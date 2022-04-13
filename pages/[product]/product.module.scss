@@ -6,7 +6,7 @@
 
     .photosContainer {
       height: 100%;
-      width: 100%;
+      //width: 80%;
       position: relative;
       margin-right: 20px;
 
@@ -20,26 +20,26 @@
           display: flex;
         }
         img {
-          max-width: 500px;
+          max-width: 650px;
         }
       }
 
       .smallPhotos {
         display: flex;
         justify-content: center;
-        margin-top: 40px;
+        margin-top: 30px;
+        gap: 10px;
 
         img {
           max-width: 80px;
-          border: 2px solid #eee;
+          border: 3px solid #eee;
           border-radius: 6px;
           padding: 10px;
-          margin-right: 10px;
           cursor: pointer;
           object-fit: contain;
 
           &:hover {
-            border: 2px solid #ddd;
+            border: 3px solid #ddd;
           }
         }
       }
@@ -47,21 +47,17 @@
     .productInfos {
       display: flex;
       flex-direction: column;
-      width: 100%;
-      background-color: #fff;
+      margin-left: 130px;
+      //width: 100%;
+      //background-color: #fff;
       .header {
         display: flex;
         flex-direction: column;
         margin-bottom: 30px;
 
         .productTitle {
-          font-size: 28px;
+          font-size: 64px;
           margin: 0;
-        }
-        a {
-          font-size: 20px;
-          margin: 0;
-          color: #376ed7;
         }
       }
 
@@ -70,21 +66,6 @@
         color: grey;
         font-weight: 500;
       }
-      .saleContainer {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        .saleText {
-          font-size: 30px;
-          font-weight: bold;
-          margin-right: 10px;
-        }
-
-        .savedText {
-          color: green;
-          font-weight: 500;
-        }
-      }
 
       .sizes {
         h4 {
@@ -92,7 +73,8 @@
           margin-bottom: 10px;
         }
         button {
-          border: 2px solid #eee;
+          border: 3px solid #eee;
+          color: white;
           border-radius: 4px;
           background-color: transparent;
           margin: 0;

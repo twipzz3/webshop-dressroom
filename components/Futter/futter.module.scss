@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
+
+.container {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  
+    .logo {
+      font-family: 'Racing Sans One', cursive;
+      font-size: 32px;
+      width: 150px;
+      margin-top: -10px;
+    }
+  
+    .leftContent {
+      display: flex;
+      font-weight: 550;
+      margin-right: auto;
+    }
+    
+    .rightContent {
+      display: flex;
+      font-weight: 550;
+      margin-left: auto;
+  
+      .cartContainer {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }

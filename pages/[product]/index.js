@@ -9,8 +9,13 @@ import { useState } from 'react';
 import Button from '@/components/Button';
 import { useProduct } from 'hooks/product.hook';
 import { db } from '@/config/firebase';
+import ErrorPage from 'pages/404';
 
-export default function Product({ data }) {
+export default function Product({ data, query }) {
+  if (!data.product_name) {
+    return <ErrorPage />;
+  }
+
   const [selectedSize, setSelectedSize] = useState();
   const [selectedPhoto, setSelectedPhoto] = useState(0);
 
@@ -20,7 +25,7 @@ export default function Product({ data }) {
     <Layout>
       <div className={styles.container}>
         <Head>
-          <title>Create Next App</title>
+          <title>eclipse</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
@@ -36,7 +41,7 @@ export default function Product({ data }) {
                     key={index}
                     src={image}
                     className={styles.smallPhoto}
-                    style={{ borderColor: selectedPhoto === index && 'black' }}
+                    style={{ borderColor: selectedPhoto === index && 'yellow' }}
                     onClick={() => setSelectedPhoto(index)}
                     loading="lazy"
                   />
@@ -47,8 +52,8 @@ export default function Product({ data }) {
           <div className={styles.productInfos}>
             <div className={styles.header}>
               <h1 className={styles.productTitle}>{product_name || ''}</h1>
-              <Link href={`/${product_name}`}>{product_name || ''}</Link>
             </div>
+            <h4 className={styles.sizesText}>Prices</h4>
             <span className={styles.priceText}>{price || 0}$</span>
             <hr />
             <div className={styles.sizes}>
@@ -59,7 +64,7 @@ export default function Product({ data }) {
                     key={size}
                     className={styles.sizeButton}
                     style={{
-                      borderColor: selectedSize === size && 'black',
+                      borderColor: selectedSize === size && 'yellow',
                       fontWeight: selectedSize === size && 'bold',
                     }}
                     onClick={() => setSelectedSize(size)}
@@ -93,7 +98,7 @@ Product.getInitialProps = async function ({ query }) {
     .doc(query.product)
     .get()
     .then(function (doc) {
-      data = doc.data();
+      data = { id: doc.id, ...doc.data() };
     })
     .catch((e) => (error = e));
 
