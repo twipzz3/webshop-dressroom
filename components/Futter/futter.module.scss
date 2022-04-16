@@ -1,32 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
-
 .container {
-    height: 90px;
+    height: 70px;
     display: flex;
-    align-items: center;
-    font-size: 14px;
+    flex-direction: column;
+    margin-top: 26px;
   
-    .logo {
-      font-family: 'Racing Sans One', cursive;
-      font-size: 32px;
-      width: 150px;
-      margin-top: -10px;
-    }
-  
-    .leftContent {
+    .firstLine {
       display: flex;
+      align-items: center;
       font-weight: 550;
-      margin-right: auto;
-    }
-    
-    .rightContent {
-      display: flex;
-      font-weight: 550;
-      margin-left: auto;
-  
-      .cartContainer {
-        display: flex;
-        align-items: center;
+      font-size: 14px;
+      //margin-right: auto;
+      gap: 30px;
+      
+      .instaIcon {
+        z-index: 10;
       }
+    }
+
+    .secondLine {
+      font-weight: 400;
+      font-size: 12px;
+      margin-top: 15px;
     }
   }

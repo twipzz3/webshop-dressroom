@@ -2,34 +2,35 @@ import React from 'react';
 import Link from 'next/link';
 
 import styles from './futter.module.scss';
+import InstaIcon from '@/icons/instagram';
 
 export default function Futter() {
   return (
     <nav className={styles.container}>
-      <Link href="/">
-        <a className={styles.logo}>eclipse</a>
-      </Link>
-      <div className={styles.leftContent}>
-        <div className={styles.roomContainer}>
+      <div className={styles.firstLine}>
+        <div className={styles.instaContainer}>
           <Link href="/">
-            <span>VIRTUAL ROOM</span>
+            <InstaIcon className={styles.instaIcon} />
+          </Link>
+        </div>
+        <div>
+          <Link href="/">
+            <span>SHIPPING & RETURNS</span>
+          </Link>
+        </div>
+        <div>
+          <Link href="/">
+            <span>TERMS OF SERVICE</span>
+          </Link>
+        </div>
+        <div>
+          <Link href="/">
+            <span>PRIVACY POLICY</span>
           </Link>
         </div>
       </div>
-      <div className={styles.rightContent}>
-        <Link href="/">
-          <div className={styles.cartContainer}>
-            <span>CART (0)</span>
-          </div>
-        </Link>
-
-        <Link href="/">
-          <div className={styles.profileContainer}>
-            <span>
-              Hi, <span style={{ fontWeight: 'bold' }}>GUEST</span>
-            </span>
-          </div>
-        </Link>
+      <div className={styles.secondLine}>
+        <a>Copyright © 2022. All rights reserved.</a>
       </div>
     </nav>
   );
