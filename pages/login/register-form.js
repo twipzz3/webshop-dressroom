@@ -6,7 +6,8 @@ import * as yup from 'yup';
 import Input from '@/components/Input';
 import Button from '@/components/Button';
 import SocialMediaButton from '@/components/SocialMediaButton';
-import { emailRegister, registerDatabase } from 'firebase/register';
+import { emailRegister, registerDatabase } from '@/firebase/register';
+import googleAuth from '@/firebase/google-auth';
 
 const schema = yup.object().shape({
   name: yup
@@ -70,7 +71,11 @@ export default function RegisterForm() {
       </span>
 
       <div style={{ display: 'flex' }}>
-        <SocialMediaButton style={{ marginRight: 20 }} icon="google">
+        <SocialMediaButton
+          style={{ marginRight: 20 }}
+          icon="google"
+          onClick={googleAuth}
+        >
           Google
         </SocialMediaButton>
         <SocialMediaButton icon="apple">Apple</SocialMediaButton>
@@ -91,7 +96,7 @@ export default function RegisterForm() {
           fontWeight: '500',
         }}
       >
-        Login with E-mail
+        Register with E-mail
       </span>
 
       <Input

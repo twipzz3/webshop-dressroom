@@ -1,14 +1,26 @@
 import Head from 'next/head';
 import styles from './index.module.scss';
 
-import Layout from 'components/Layout';
-import Cards from '@/components/ProductCard/product-card';
 //import Products from 'components/HomeProducts';
 import { db } from '@/config/firebase';
+import Layout from 'components/Layout';
+import Cards from '@/components/ProductCard/product-card';
 //import { useProduct } from 'hooks/product.hook';
+import { useAuth } from '../firebase/context';
 
 export default function Home({ data, query }) {
-  console.log(data);
+  //console.log(data);
+  db.collection('Users')
+    .get()
+    .then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, ' => ', doc.data());
+      });
+    });
+
+  const auth = useAuth();
+  console.log(auth);
 
   return (
     <Layout>
