@@ -4,7 +4,10 @@ import Link from 'next/link';
 import styles from './header.module.scss';
 import ArrowIcon from '@/icons/arrow';
 
-export default function Header({ isSigned }) {
+import { useAuth } from '@/firebase/context';
+
+export default function Header() {
+  const { user } = useAuth();
   return (
     <nav className={styles.container}>
       <Link href="/">
@@ -26,16 +29,19 @@ export default function Header({ isSigned }) {
         <Link href="/">
           <div className={styles.profileContainer}>
             <span>
-              HELLO <span style={{ fontWeight: 'normal' }}>GUEST</span>
+              HELLO{' '}
+              <span style={{ fontWeight: 'normal' }}>
+                {user?.name || 'GUEST'}
+              </span>
             </span>
             <ArrowIcon width={12} height={12} className={styles.arrowIcon} />
             <div className={styles.dropdown}>
               <div className={styles.arrowUp} />
               <div className={styles.dropdownMenu}>
-                {isSigned ? (
+                {user ? (
                   <>
-                    <Link href="/orders">My Orders</Link>
                     <Link href="/account">My Account</Link>
+                    <Link href="/orders">My Orders</Link>
                     <Link href="/favorites">Favourites</Link>
                     <Link href="/">Logout</Link>
                   </>

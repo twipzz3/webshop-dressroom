@@ -7,6 +7,7 @@ export function AuthProvider({ children }) {
   return <authContext.Provider value={auth}>{children}</authContext.Provider>;
 }
 export const useAuth = () => {
+  console.log('useAuth');
   return useContext(authContext);
 };
 function useProvideAuth() {
@@ -30,6 +31,6 @@ function useProvideAuth() {
 
   return {
     user,
-    getCurrentUser,
+    setUser,
   };
 }
