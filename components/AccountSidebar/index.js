@@ -2,7 +2,6 @@ import React from 'react';
 
 import styles from './sidebar.module.scss';
 import Link from 'next/link';
-import HelpIcon from '@/icons/help';
 
 import { useAuth } from '@/firebase/context';
 
@@ -32,12 +31,6 @@ export default function AccountSidebar() {
         <SidebarItem name="Addresses" emoji="🏘️" link="/account/addresses" />
         <SidebarItem name="Logout" emoji="🚪" link="/account/logout" />
       </ul>
-      <div className={styles.helpContainer}>
-        <div className={styles.helpIcon}>
-          <HelpIcon width={18} height={18} />
-        </div>
-        <span>Help Center</span>
-      </div>
     </div>
   );
 }

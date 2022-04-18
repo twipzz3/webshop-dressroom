@@ -32,20 +32,4 @@
         }
       }
     }
-    .helpContainer {
-      display: flex;
-      align-items: center;
-      position: absolute;
-      bottom: 30px;
-      margin-left: -10px;
-  
-      .helpIcon {
-        padding: 15px;
-        background-color: #f6f7f9;
-        display: flex;
-        border-radius: 100%;
-        margin-right: 10px;
-        transform: scaleX(-1);
-      }
-    }
   }
