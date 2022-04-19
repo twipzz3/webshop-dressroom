@@ -2,16 +2,13 @@
 
 .container {
   width: 100%;
+  flex-direction: column;
   .main {
     padding-bottom: 40px;
     .header {
       display: flex;
       margin-bottom: 40px;
       flex-direction: column;
-
-      @include md {
-        flex-direction: row;
-      }
 
       .title {
         font-size: 28px;

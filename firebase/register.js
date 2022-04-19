@@ -9,6 +9,10 @@ function registerDatabase({ id, email, name, surname }) {
     name,
     surname,
     email,
+    addresses: [],
+    cart: {},
+    orders: [],
+    phoneNumber: '',
   });
 }
 
