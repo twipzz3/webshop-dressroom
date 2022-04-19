@@ -27,7 +27,6 @@ export default function AccountSidebar() {
       <ul className={styles.categories}>
         <SidebarItem name="Account" emoji="🔒" />
         <SidebarItem name="Orders" emoji="📦" link="/account/orders" />
-        <SidebarItem name="Favorites" emoji="❤️" link="/account/favorites" />
         <SidebarItem name="Addresses" emoji="🏘️" link="/account/addresses" />
         <SidebarItem name="Logout" emoji="🚪" link="/account/logout" />
       </ul>
