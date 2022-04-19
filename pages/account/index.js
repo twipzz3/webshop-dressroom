@@ -11,6 +11,7 @@ import Input from '@/components/Input';
 import Button from '@/components/Button';
 
 import { updateUser, updatePassword } from '@/firebase/update-user';
+import { useRouter } from 'next/router';
 
 const schema = yup.object().shape({
   name: yup
@@ -47,7 +48,8 @@ const schema2 = yup.object().shape({
 
 export default function AccountPage() {
   const [passwordError, setError] = useState(null);
-  const { user } = useAuth();
+  const [photo, setPhoto] = useState(null);
+  const { user, loading } = useAuth();
 
   const { register, handleSubmit, watch, errors } = useForm({
     resolver: yupResolver(schema),
@@ -63,9 +65,14 @@ export default function AccountPage() {
   });
 
   const onSubmit = ({ email, phone, name, surname }) => {
-    updateUser({ email, phone, name, surname }).finally(() =>
-      window.location.reload(false)
-    );
+    updateUser({
+      email,
+      phone,
+      name,
+      surname,
+      photo,
+      finalEvent: () => window.location.reload(false),
+    });
   };
 
   const changePassword = ({ currentPassword, newPassword }) => {
@@ -80,6 +87,7 @@ export default function AccountPage() {
       .catch((e) => setError(e.message));
   };
 
+  if (!user && !loading) useRouter().push('/login');
   return (
     <Layout noCategories>
       <AccountSidebar />

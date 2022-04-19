@@ -14,12 +14,13 @@ export default function LoginPage() {
   auth.onAuthStateChanged(function (user) {
     if (user) {
       console.log(user);
-      router.push('/');
+      typeof window !== 'undefined' && router.push('/');
     }
   });
 
   return (
     <div className={styles.container}>
+      <a className={styles.logo}>eclipse</a>
       <div className={styles.content}>
         <div className={styles.switchContainer}>
           <button

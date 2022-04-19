@@ -30,7 +30,6 @@ export default function LoginForm() {
       setLoginError(e.message)
     );
   };
-
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -101,7 +100,6 @@ export default function LoginForm() {
         >
           Google
         </SocialMediaButton>
-        <SocialMediaButton icon="apple">Apple</SocialMediaButton>
       </div>
     </form>
   );
