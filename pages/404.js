@@ -14,7 +14,7 @@ export default function ErrorPage() {
       >
         <h1 style={{ fontSize: 64 }}>404</h1>
         <h2>The content you are looking for is not available at the moment</h2>
-        <Link href="/" passHref>
+        <Link href="/">
           <h3 style={{ cursor: 'pointer', textDecoration: 'underline' }}>
             Continue Shopping
           </h3>

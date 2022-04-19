@@ -7,10 +7,8 @@ import { useAddress } from 'hooks/address.hook';
 export default function OrderItem({ data }) {
   const address = useAddress(data.address);
   const { title, region, city, full_address, zipcode } = address.data;
-
   console.log(new Date(data.date));
   console.log(data.date);
-
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -24,7 +22,7 @@ export default function OrderItem({ data }) {
         </div>
         <div>
           <h4>Status</h4>
-          <span>On shipping</span>
+          <span>{data.status}</span>
         </div>
         <div>
           <h4>Price</h4>
@@ -36,10 +34,12 @@ export default function OrderItem({ data }) {
         <img
           className={styles.photo}
           src="https://productimages.hepsiburada.net/s/34/120/10426321043506.jpg"
+          loading="lazy"
         />
         <img
           className={styles.photo}
           src="https://i.ibb.co/ZK2L8cg/kisspng-fashion-model-hugo-boss-pinpoint-resource-of-oklah-mens-fashion-5a78e637c1bde9-3434957015178.png"
+          loading="lazy"
         />
       </div>
       <hr />
