@@ -1,18 +1,18 @@
 .container {
   padding: 18px;
-  background-color: #f6f6f6;
-  border: 2px solid #f6f6f6;
+  background-color: #0F0F0F;
+  border: 2px solid #737373;
   border-radius: 16px;
   font-size: 16px;
-  color: black;
+  color: white;
   margin-top: 20px;
   width: 100%;
 
   &:hover {
-    background-color: #f6f6f655;
+    background-color: #212121;
   }
 
   &::placeholder {
-    color: grey;
+    color: #737373;
   }
 }

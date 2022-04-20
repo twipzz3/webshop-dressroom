@@ -23,13 +23,6 @@ const schema = yup.object().shape({
     .required('* Surname is required.')
     .min(2, '* Surname is too short'),
   email: yup.string().email().required('* Email is required.'),
-  phone: yup
-    .string()
-    .notRequired()
-    .matches(/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/g, {
-      message: 'Invalid Phone Number',
-      excludeEmptyString: true,
-    }),
 });
 
 const schema2 = yup.object().shape({
@@ -64,10 +57,9 @@ export default function AccountPage() {
     resolver: yupResolver(schema2),
   });
 
-  const onSubmit = ({ email, phone, name, surname }) => {
+  const onSubmit = ({ email, name, surname }) => {
     updateUser({
       email,
-      phone,
       name,
       surname,
       photo,
@@ -143,21 +135,6 @@ export default function AccountPage() {
               {errors.email && (
                 <span style={{ color: 'red', marginTop: 4, fontSize: 14 }}>
                   {errors.email.message}
-                </span>
-              )}
-              <div className={styles.inputContainer}>
-                <span>Phone Number</span>
-                <Input
-                  name="phone"
-                  defaultValue={user?.phoneNumber}
-                  noMargin
-                  register={register}
-                  error={errors.phone}
-                />
-              </div>
-              {errors.phone && (
-                <span style={{ color: 'red', marginTop: 4, fontSize: 14 }}>
-                  {errors.phone.message}
                 </span>
               )}
               <Button type="submit" name="update_button" value="Update">

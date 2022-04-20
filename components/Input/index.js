@@ -15,7 +15,7 @@ export default function Input({
       className={styles.container}
       style={{
         borderColor: error && 'red',
-        backgroundColor: focus && 'white',
+        backgroundColor: focus && '0F0F0F',
         margin: noMargin && 0,
       }}
       ref={register && register({ required })}

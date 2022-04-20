@@ -83,7 +83,7 @@ export default function Header() {
       </div>
       <div className={styles.leftContent}>
         <div className={styles.roomContainer}>
-          <Link href="/">
+          <Link href="/virtual-room">
             <span>VIRTUAL ROOM</span>
           </Link>
         </div>

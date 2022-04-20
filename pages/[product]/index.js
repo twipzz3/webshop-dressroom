@@ -1,16 +1,19 @@
+import { useState } from 'react';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
+import Link from 'next/link';
+
+import { db } from '@/config/firebase';
+import { useAuth } from '@/firebase/context';
+import { useCart } from 'hooks/cart.hook';
+import { addToCart } from '@/firebase/product';
 
 import styles from './product.module.scss';
 
 import Layout from 'components/Layout';
-import Link from 'next/link';
-import { useState } from 'react';
 import Button from '@/components/Button';
 import ButtonGr from '@/components/ButtonGr';
-import { useProduct } from 'hooks/product.hook';
-import { db } from '@/config/firebase';
 import ErrorPage from 'pages/404';
+import { useRouter } from 'next/router';
 
 export default function Product({ data, query }) {
   if (!data.product_name) {
@@ -20,7 +23,40 @@ export default function Product({ data, query }) {
   const [selectedSize, setSelectedSize] = useState();
   const [selectedPhoto, setSelectedPhoto] = useState(0);
 
+  const { user, loading } = useAuth();
+
+  const router = useRouter();
+
   const { cover_photo, description, photos, price, product_name, sizes } = data;
+
+  const id = query?.product;
+
+  const cart = useCart().data;
+
+  console.log(cart);
+
+  const addCartEvent = () => {
+    if (!user && !loading && typeof window !== 'undefined')
+      router.push('/login');
+    else {
+      if (selectedSize) {
+        const newCart = {
+          ...cart,
+          [id]: cart.hasOwnProperty(id)
+            ? [...cart[id], selectedSize]
+            : [selectedSize],
+        };
+        addToCart(newCart);
+      }
+      if (sizes?.length === 0) {
+        const newCart = {
+          ...cart,
+          [id]: cart.hasOwnProperty(id) ? [...cart[id], '-'] : ['-'],
+        };
+        addToCart(newCart);
+      }
+    }
+  };
 
   return (
     <Layout>
@@ -81,8 +117,12 @@ export default function Product({ data, query }) {
             </div>
             <hr />
             <div className={styles.buttons}>
-              <ButtonGr style={{ margin: 0 }}>Virtual Room</ButtonGr>
-              <Button style={{ margin: 0 }}>Add to Cart</Button>
+              <Link href="/virtual-room">
+                <ButtonGr style={{ margin: 0 }}>Virtual Room</ButtonGr>
+              </Link>
+              <Button style={{ margin: 0 }} onClick={addCartEvent}>
+                Add to Cart
+              </Button>
             </div>
             <hr />
             <div className={styles.infoContainer}>

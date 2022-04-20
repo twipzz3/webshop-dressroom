@@ -77,6 +77,10 @@
     @include md {
       display: flex;
     }
+
+    .roomContainer {
+      cursor: pointer;
+    }
   }
   .rightContent {
     display: none;
