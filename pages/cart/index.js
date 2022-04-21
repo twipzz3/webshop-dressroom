@@ -1,8 +1,10 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import styles from './cart.module.scss';
 
 import Layout from 'components/Layout';
 import CartItem from '@/components/CartItem';
+import Button from '@/components/Button';
 import { useCart, useCartOnce } from 'hooks/cart.hook';
 import React, { useEffect, useState } from 'react';
 import { auth, db } from '@/config/firebase';
@@ -69,17 +71,19 @@ export default function CartPage() {
 
   return (
     <Layout>
-      <div className={styles.container}>
-        <Head>
-          <title>eclipse</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-
-        <main className={styles.main}>
-          <div className={styles.header}>
-            <h1 className={styles.title}>My Cart</h1>
-            <h4>You have {cartLength} items in your cart</h4>
-          </div>
+      <Head>
+        <title>eclipse</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <main className={styles.container}>
+        <div className={styles.header}>
+          <h1 className={styles.title}>My Cart</h1>
+          <h4>You have {cartLength} items in your cart</h4>
+          <Link href="/checkout">
+            <Button className={styles.button}>Checkout</Button>
+          </Link>
+        </div>
+        <div className={styles.content}>
           {cartItemsArray.map((item, index) => {
             return (
               <CartItem
@@ -91,8 +95,8 @@ export default function CartPage() {
               />
             );
           })}
-        </main>
-      </div>
+        </div>
+      </main>
     </Layout>
   );
 }
