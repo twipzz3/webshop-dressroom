@@ -19,7 +19,7 @@ export default function CartItem({ id, size, count, onAdd }) {
       </div>
       <span className={styles.price}>{data?.price * count || '0'}$</span>
       <div className={styles.buttons}>
-        <button>-</button>
+        <button onClick={() => onMinus(id, size)}>-</button>
         <span>{count || '0'}</span>
         <button onClick={() => onAdd(id, size)}>+</button>
       </div>

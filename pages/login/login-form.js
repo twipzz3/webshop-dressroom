@@ -83,7 +83,7 @@ export default function LoginForm() {
           textAlign: 'center',
           marginTop: -35,
           padding: 15,
-          backgroundColor: 'white',
+          backgroundColor: 'black',
           display: 'flex',
           alignSelf: 'center',
           width: 'max-content',
@@ -100,6 +100,7 @@ export default function LoginForm() {
         >
           Google
         </SocialMediaButton>
+        <SocialMediaButton icon="apple">Apple</SocialMediaButton>
       </div>
     </form>
   );

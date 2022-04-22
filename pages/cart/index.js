@@ -92,6 +92,7 @@ export default function CartPage() {
                 size={item.size}
                 count={item.count}
                 onAdd={addCartEvent}
+                //onMinus={minusCartEvent}
               />
             );
           })}
