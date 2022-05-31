@@ -77,7 +77,9 @@ export default function CartPage() {
       </Head>
       <main className={styles.container}>
         <div className={styles.header}>
-          <h1 className={styles.title}>My Cart</h1>
+          <h1 className={styles.title}>
+            <span className={styles.emoji}>🛒</span>My Cart
+          </h1>
           <h4>You have {cartLength} items in your cart</h4>
           <Link href="/checkout">
             <Button className={styles.button}>Checkout</Button>

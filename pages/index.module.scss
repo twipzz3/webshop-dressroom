@@ -5,10 +5,6 @@
   flex-direction: column;
   .main {
     padding-bottom: 40px;
-    .header {
-      display: flex;
-      margin-bottom: 40px;
-      flex-direction: column;
 
       .title {
         font-size: 28px;
@@ -22,7 +18,7 @@
           margin-right: 10px;
         }
       }
-    }
+
     .products {
       display: grid;
       grid-template-columns: repeat(3, minmax(240px, 1fr));

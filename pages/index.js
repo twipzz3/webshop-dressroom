@@ -1,8 +1,6 @@
 import Head from 'next/head';
 import styles from './index.module.scss';
 
-//import Products from 'components/HomeProducts';
-
 import { db } from 'config/firebase';
 import Layout from 'components/Layout';
 import Cards from '@/components/ProductCard/product-card';
@@ -22,7 +20,7 @@ export default function Home({ data }) {
 
         <main className={styles.main}>
           <h1 className={styles.title}>
-            <span className={styles.emoji}>🌙</span>New In
+            <span className={styles.emoji}>🌙</span> New In
           </h1>
           <div className={styles.products}>
             {data.map((product) => {
